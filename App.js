@@ -12,11 +12,17 @@ export default function App() {
 }
 
 class BeeTracker extends Component {
+
+  logMe = () => { console.log(this.props.name) }
+
   render() {
     return (
       <View>
         <Text>{this.props.name}</Text>
-        <Button title="bum"/>
+        <Button 
+        title="click me"
+        onPress={ this.logMe }
+          />
       </View>
       )
     }

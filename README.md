@@ -28,3 +28,41 @@ return (
   </View>
   )
 ```
+- If I click the button I want to `console.log` to see something happened.  In this code, JS runs through and thinks its job is done.  No matter how many times you click the button, it won't log to console again as the page isn't being re-rendered and the code has already been run.  Instead, you want to pass `onPress` a function so that it can be run over and over again
+```JavaScript
+// Console log just the once & put yer feet up:
+  render() {
+    return (
+      <View>
+        <Text>{this.props.name}</Text>
+        <Button 
+        title="click me"
+        onPress={console.log(this.props.name)}
+          />
+      </View>
+      )
+    }
+  }
+
+  // JS stays ready for orders whenever you press that button...
+    render() {
+    return (
+      <View>
+        <Text>{this.props.name}</Text>
+        <Button 
+        title="click me"
+        onPress={ () => { console.log(this.props.name) }}
+          />
+      </View>
+      )
+    }
+  }
+  ```
+- Ok so lets SRP this sucker and extract the log function out of the View:
+```JavaScript
+// here's the function inside BeeTracker
+logMe = () => { console.log(this.props.name) }
+
+// and this is how you tell JS what func to run onPress (don't execute the func like `logMe()`, just tell JS to run it when the button is pressed)
+onPress={ this.logMe }
+```
