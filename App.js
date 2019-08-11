@@ -13,12 +13,19 @@ export default function App() {
 
 class BeeTracker extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
+
   logMe = () => { console.log(this.props.name) }
 
   render() {
     return (
       <View>
-        <Text>{this.props.name}</Text>
+        <Text>{this.props.name} count: {this.state.count}</Text>
         <Button 
         title="click me"
         onPress={ this.logMe }

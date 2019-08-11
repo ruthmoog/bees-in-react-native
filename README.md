@@ -66,3 +66,17 @@ logMe = () => { console.log(this.props.name) }
 // and this is how you tell JS what func to run onPress (don't execute the func like `logMe()`, just tell JS to run it when the button is pressed)
 onPress={ this.logMe }
 ```
+- we want to render the count alongside the bees so we need to set initial state by adding our count to the constructor like so:
+```JavaScript
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
+```
+then it'll be possible to render the count:
+```JavaScript
+<Text>{this.props.name} count: {this.state.count}</Text>
+
+```
