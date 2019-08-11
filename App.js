@@ -20,7 +20,13 @@ class BeeTracker extends Component {
     }
   }
 
-  logMe = () => { console.log(this.props.name) }
+  countMe = () => { 
+    this.setState((currentState) => {
+      return {
+        count: (currentState.count + 1)
+      }
+    })
+  }
 
   render() {
     return (
@@ -28,7 +34,7 @@ class BeeTracker extends Component {
         <Text>{this.props.name} count: {this.state.count}</Text>
         <Button 
         title="click me"
-        onPress={ this.logMe }
+        onPress={ this.countMe }
           />
       </View>
       )

@@ -80,3 +80,13 @@ then it'll be possible to render the count:
 <Text>{this.props.name} count: {this.state.count}</Text>
 
 ```
+- lets change our `logMe` func to count bees in increments of 1.  I've renamed the func to `countMe`, this gets called each time the button is pressed.  the `countMe` func calls `setState` on the instance, which means that once called the component will be re-rendered, and `setState` takes a function. The current state is passed in as a whole object, and we return the newly changed state with a count that has a new value of _1 plus the old count value_.
+```JavaScript
+  countMe = () => { 
+    this.setState((currentState) => {
+      return {
+        count: (currentState.count + 1)
+      }
+    })
+  }
+```
