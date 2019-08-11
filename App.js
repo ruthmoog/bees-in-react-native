@@ -20,12 +20,14 @@ class BeeTracker extends Component {
     }
   }
 
+  incrementCount = (currentState) => {
+    return {
+      count: (currentState.count + 1)
+    }
+  }
+
   countMe = () => { 
-    this.setState((currentState) => {
-      return {
-        count: (currentState.count + 1)
-      }
-    })
+    this.setState(this.incrementCount)
   }
 
   render() {
